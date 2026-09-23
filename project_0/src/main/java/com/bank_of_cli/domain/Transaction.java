@@ -19,11 +19,16 @@ public class Transaction {
         this.createdAT = createdAT;
     }
 
-    public long getTransactionId() {
+    @Override
+    public String toString() {
+        return String.format("Transaction ID: %d | Type: %s | Amount: $%.2f | Date: %s", transactionID, transactionType, amount / 100.0, createdAT);
+    }
+
+    public long getTransactionID() {
         return transactionID;
     }
 
-    public long getAccountId() {
+    public long getAccountID() {
         return accountID;
     }
 
@@ -41,10 +46,5 @@ public class Transaction {
 
     public LocalDateTime getCreatedAt() {
         return createdAT;
-    }
-
-    @Override
-    public String toString() {
-        return String.format("Transaction ID: %d | Type: %s | Amount: $%.2f | Date: %s", transactionID, transactionType, amount / 100.0, createdAT);
     }
 }
