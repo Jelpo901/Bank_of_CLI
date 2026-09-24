@@ -8,4 +8,5 @@ Users are allowed to
 * Withdraw
 * Transfer
 * View Transaction History
+
 Developers also have the privelege to view system logs and test functions inside the Test folder.
