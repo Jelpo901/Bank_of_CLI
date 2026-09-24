@@ -1,5 +1,7 @@
 package com.bank_of_cli.domain;
 
+import java.math.BigDecimal;
+
 public class Account {
     private long accountID;
     private String pin;
@@ -13,7 +15,8 @@ public class Account {
 
     @Override 
     public String toString() {
-        return String.format("Account ID: %d | Balance: $%.2f", accountID, balance / 100.0);
+        return String.format("Account ID: %d | Balance: $%s", accountID,
+            BigDecimal.valueOf(balance, 2).toPlainString());
     }
 
     public long getAccountID() {

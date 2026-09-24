@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS transactions (
     transaction_id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     account_id BIGINT NOT NULL REFERENCES accounts(account_id),
     related_account_id BIGINT REFERENCES accounts(account_id),
-    transaction_type VARCHAR(10) NOT NULL,
+    transaction_type VARCHAR(20) NOT NULL,
     amount BIGINT NOT NULL,
     timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT check_amount_positive CHECK (amount > 0)

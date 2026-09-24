@@ -1,5 +1,6 @@
 package com.bank_of_cli.domain;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 public class Transaction {
@@ -21,7 +22,8 @@ public class Transaction {
 
     @Override
     public String toString() {
-        return String.format("Transaction ID: %d | Type: %s | Amount: $%.2f | Date: %s", transactionID, transactionType, amount / 100.0, createdAT);
+        return String.format("Transaction ID: %d | Type: %s | Amount: $%s | Date: %s", transactionID,
+            transactionType, BigDecimal.valueOf(amount, 2).toPlainString(), createdAT);
     }
 
     public long getTransactionID() {

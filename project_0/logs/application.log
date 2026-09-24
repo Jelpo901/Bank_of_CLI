@@ -1,72 +1,25 @@
-2026-09-23 22:40:06 ERROR com.bank_of_cli.util.AppLogger - Could not connect to the database
-org.postgresql.util.PSQLException: FATAL: password authentication failed for user "bankOfCli"
-	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:711)
-	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:213)
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:268)
-	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
-	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:273)
-	at org.postgresql.Driver.makeConnection(Driver.java:446)
-	at org.postgresql.Driver.connect(Driver.java:298)
-	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:681)
-	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:229)
-	at com.bank_of_cli.persistence.ConnectionFactory.getConnection(ConnectionFactory.java:35)
-	at com.bank_of_cli.persistence.BankDAOImpl.getConnection(BankDAOImpl.java:215)
-	at com.bank_of_cli.persistence.BankDAOImpl.initializeSchema(BankDAOImpl.java:171)
-	at com.bank_of_cli.persistence.BankDAOImpl.<init>(BankDAOImpl.java:51)
-	at com.bank_of_cli.api.Main.main(Main.java:12)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.codehaus.mojo.exec.AbstractExecJavaBase.executeMainMethod(AbstractExecJavaBase.java:402)
-	at org.codehaus.mojo.exec.ExecJavaMojo.executeMainMethod(ExecJavaMojo.java:142)
-	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
-	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
-	at java.base/java.lang.Thread.run(Thread.java:842)
-2026-09-23 22:40:06 ERROR com.bank_of_cli.util.AppLogger - Error starting application: Could not connect to the database
-2026-09-23 22:40:52 ERROR com.bank_of_cli.util.AppLogger - Could not connect to the database
-org.postgresql.util.PSQLException: FATAL: password authentication failed for user "bankOfCli"
-	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:711)
-	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:213)
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:268)
-	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
-	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:273)
-	at org.postgresql.Driver.makeConnection(Driver.java:446)
-	at org.postgresql.Driver.connect(Driver.java:298)
-	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:681)
-	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:229)
-	at com.bank_of_cli.persistence.ConnectionFactory.getConnection(ConnectionFactory.java:35)
-	at com.bank_of_cli.persistence.BankDAOImpl.getConnection(BankDAOImpl.java:215)
-	at com.bank_of_cli.persistence.BankDAOImpl.initializeSchema(BankDAOImpl.java:171)
-	at com.bank_of_cli.persistence.BankDAOImpl.<init>(BankDAOImpl.java:51)
-	at com.bank_of_cli.api.Main.main(Main.java:12)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.codehaus.mojo.exec.AbstractExecJavaBase.executeMainMethod(AbstractExecJavaBase.java:402)
-	at org.codehaus.mojo.exec.ExecJavaMojo.executeMainMethod(ExecJavaMojo.java:142)
-	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
-	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
-	at java.base/java.lang.Thread.run(Thread.java:842)
-2026-09-23 22:40:52 ERROR com.bank_of_cli.util.AppLogger - Error starting application: Could not connect to the database
-2026-09-23 22:56:31 ERROR com.bank_of_cli.util.AppLogger - Could not connect to the database
-org.postgresql.util.PSQLException: FATAL: database "bankOfCli" does not exist
+2026-09-24 11:22:44 INFO  com.bank_of_cli.util.AppLogger - Account registered: 12
+2026-09-24 11:22:52 INFO  com.bank_of_cli.util.AppLogger - Account registered: 54
+2026-09-24 11:22:54 INFO  com.bank_of_cli.util.AppLogger - Exited Application
+2026-09-24 11:23:44 INFO  com.bank_of_cli.util.AppLogger - User logged in: 54
+2026-09-24 11:23:48 INFO  com.bank_of_cli.util.AppLogger - Account deposited: 54
+2026-09-24 11:24:03 ERROR com.bank_of_cli.util.AppLogger - Database error during transfer
+org.postgresql.util.PSQLException: ERROR: value too long for type character varying(10)
 	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2733)
-	at org.postgresql.core.v3.QueryExecutorImpl.readStartupMessages(QueryExecutorImpl.java:2845)
-	at org.postgresql.core.v3.QueryExecutorImpl.<init>(QueryExecutorImpl.java:176)
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:323)
-	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
-	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:273)
-	at org.postgresql.Driver.makeConnection(Driver.java:446)
-	at org.postgresql.Driver.connect(Driver.java:298)
-	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:681)
-	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:229)
-	at com.bank_of_cli.persistence.ConnectionFactory.getConnection(ConnectionFactory.java:35)
-	at com.bank_of_cli.persistence.BankDAOImpl.getConnection(BankDAOImpl.java:215)
-	at com.bank_of_cli.persistence.BankDAOImpl.initializeSchema(BankDAOImpl.java:171)
-	at com.bank_of_cli.persistence.BankDAOImpl.<init>(BankDAOImpl.java:51)
-	at com.bank_of_cli.api.Main.main(Main.java:12)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2420)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:372)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:517)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:434)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:194)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:155)
+	at com.bank_of_cli.persistence.BankDAOImpl.addTransaction(BankDAOImpl.java:192)
+	at com.bank_of_cli.persistence.BankDAOImpl.transfer(BankDAOImpl.java:140)
+	at com.bank_of_cli.service.BankServiceImpl.transfer(BankServiceImpl.java:80)
+	at com.bank_of_cli.api.BankRepl.transfer(BankRepl.java:136)
+	at com.bank_of_cli.api.BankRepl.runAccountMenu(BankRepl.java:88)
+	at com.bank_of_cli.api.BankRepl.login(BankRepl.java:69)
+	at com.bank_of_cli.api.BankRepl.run(BankRepl.java:34)
+	at com.bank_of_cli.api.Main.main(Main.java:14)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -76,34 +29,38 @@ org.postgresql.util.PSQLException: FATAL: database "bankOfCli" does not exist
 	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
 	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
 	at java.base/java.lang.Thread.run(Thread.java:842)
-2026-09-23 22:56:31 ERROR com.bank_of_cli.util.AppLogger - Error starting application: Could not connect to the database
-2026-09-23 23:04:50 ERROR com.bank_of_cli.util.AppLogger - Could not connect to the database
-org.postgresql.util.PSQLException: FATAL: database "bankOfCli" does not exist
-	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2733)
-	at org.postgresql.core.v3.QueryExecutorImpl.readStartupMessages(QueryExecutorImpl.java:2845)
-	at org.postgresql.core.v3.QueryExecutorImpl.<init>(QueryExecutorImpl.java:176)
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:323)
-	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
-	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:273)
-	at org.postgresql.Driver.makeConnection(Driver.java:446)
-	at org.postgresql.Driver.connect(Driver.java:298)
-	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:681)
-	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:229)
-	at com.bank_of_cli.persistence.ConnectionFactory.getConnection(ConnectionFactory.java:35)
-	at com.bank_of_cli.persistence.BankDAOImpl.getConnection(BankDAOImpl.java:215)
-	at com.bank_of_cli.persistence.BankDAOImpl.initializeSchema(BankDAOImpl.java:171)
-	at com.bank_of_cli.persistence.BankDAOImpl.<init>(BankDAOImpl.java:51)
-	at com.bank_of_cli.api.Main.main(Main.java:12)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.codehaus.mojo.exec.AbstractExecJavaBase.executeMainMethod(AbstractExecJavaBase.java:402)
-	at org.codehaus.mojo.exec.ExecJavaMojo.executeMainMethod(ExecJavaMojo.java:142)
-	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
-	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
-	at java.base/java.lang.Thread.run(Thread.java:842)
-2026-09-23 23:04:50 ERROR com.bank_of_cli.util.AppLogger - Error starting application: Could not connect to the database
-2026-09-23 23:05:49 INFO  com.bank_of_cli.util.AppLogger - Exited Application
-2026-09-23 23:13:55 INFO  com.bank_of_cli.util.AppLogger - Account registered: 624a1bd9-efd9-41f8-be31-d25b7713dc34
-2026-09-23 23:13:55 INFO  com.bank_of_cli.util.AppLogger - Exited Application
+2026-09-24 11:24:03 ERROR com.bank_of_cli.util.AppLogger - System error: Error during transfer
+2026-09-24 11:24:22 INFO  com.bank_of_cli.util.AppLogger - User logged in: 12
+2026-09-24 11:24:34 ERROR com.bank_of_cli.util.AppLogger - System error: Insufficient funds for transfer.
+2026-09-24 11:24:55 ERROR com.bank_of_cli.util.AppLogger - System error: Cannot transfer to the same account.
+2026-09-24 11:24:58 INFO  com.bank_of_cli.util.AppLogger - Account viewed transaction history: 12
+2026-09-24 11:25:04 INFO  com.bank_of_cli.util.AppLogger - User logged out: 12
+2026-09-24 11:25:05 INFO  com.bank_of_cli.util.AppLogger - Exited Application
+2026-09-24 11:27:09 INFO  com.bank_of_cli.util.AppLogger - User logged in: 54
+2026-09-24 11:27:11 INFO  com.bank_of_cli.util.AppLogger - Account viewed balance: 54
+2026-09-24 11:27:16 INFO  com.bank_of_cli.util.AppLogger - Account transferred: 54 to 12
+2026-09-24 11:27:18 INFO  com.bank_of_cli.util.AppLogger - Account viewed transaction history: 54
+2026-09-24 11:27:39 ERROR com.bank_of_cli.util.AppLogger - System error: Please enter a valid amount.
+2026-09-24 11:27:46 INFO  com.bank_of_cli.util.AppLogger - Account withdrew: 54
+2026-09-24 11:27:48 INFO  com.bank_of_cli.util.AppLogger - Account viewed balance: 54
+2026-09-24 11:27:55 INFO  com.bank_of_cli.util.AppLogger - Account transferred: 54 to 12
+2026-09-24 11:27:57 INFO  com.bank_of_cli.util.AppLogger - Account viewed transaction history: 54
+2026-09-24 11:30:48 INFO  com.bank_of_cli.util.AppLogger - Exited Application
+2026-09-24 11:31:02 INFO  com.bank_of_cli.util.AppLogger - User logged out: 54
+2026-09-24 11:31:03 INFO  com.bank_of_cli.util.AppLogger - Exited Application
+2026-09-24 11:31:21 ERROR com.bank_of_cli.util.AppLogger - System error: Invalid account ID or PIN.
+2026-09-24 11:31:26 INFO  com.bank_of_cli.util.AppLogger - User logged in: 54
+2026-09-24 11:31:28 INFO  com.bank_of_cli.util.AppLogger - Account deposited: 54
+2026-09-24 11:31:39 INFO  com.bank_of_cli.util.AppLogger - Account transferred: 54 to 12
+2026-09-24 11:31:44 ERROR com.bank_of_cli.util.AppLogger - System error: Please enter a valid Account ID.
+2026-09-24 11:31:53 INFO  com.bank_of_cli.util.AppLogger - Account transferred: 54 to 12
+2026-09-24 11:31:58 INFO  com.bank_of_cli.util.AppLogger - Account viewed balance: 54
+2026-09-24 11:37:34 INFO  com.bank_of_cli.util.AppLogger - User logged out: 54
+2026-09-24 11:37:40 INFO  com.bank_of_cli.util.AppLogger - Account registered: 3
+2026-09-24 11:37:46 INFO  com.bank_of_cli.util.AppLogger - User logged in: 12
+2026-09-24 11:37:56 INFO  com.bank_of_cli.util.AppLogger - Account deposited: 12
+2026-09-24 11:38:03 INFO  com.bank_of_cli.util.AppLogger - Account viewed balance: 12
+2026-09-24 11:38:07 INFO  com.bank_of_cli.util.AppLogger - User logged out: 12
+2026-09-24 11:38:07 INFO  com.bank_of_cli.util.AppLogger - Exited Application
+2026-09-24 11:52:11 INFO  com.bank_of_cli.util.AppLogger - User logged in: 12
+2026-09-24 11:52:13 INFO  com.bank_of_cli.util.AppLogger - Account viewed transaction history: 12

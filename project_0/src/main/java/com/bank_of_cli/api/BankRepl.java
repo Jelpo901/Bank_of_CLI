@@ -4,6 +4,8 @@ import com.bank_of_cli.domain.Account;
 import com.bank_of_cli.domain.Transaction;
 import com.bank_of_cli.service.BankService;
 import com.bank_of_cli.util.AppLogger;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.List;
 import java.util.Scanner;
 
@@ -107,13 +109,13 @@ public class BankRepl {
     private void checkBalance(long accountID) {
         long balance = bankService.getBalance(accountID);
         AppLogger.info("Account viewed balance: " + accountID);
-        System.out.println("Current balance: " + balance);
+        System.out.println("Current balance: $" + formatAmount(balance));
     }
 
     private void deposit(long accountID) {
         System.out.println();
         System.out.println("=== Deposit ===");
-        long amount = readAmount("Enter amount to deposit: ");
+        long amount = readAmount("Enter amount to deposit (e.g. 10.00): ");
         bankService.deposit(accountID, amount);
         AppLogger.info("Account deposited: " + accountID);
         System.out.println("Deposit successful!");
@@ -122,7 +124,7 @@ public class BankRepl {
     private void withdraw(long accountID) {
         System.out.println();
         System.out.println("=== Withdraw ===");
-        long amount = readAmount("Enter amount to withdraw: ");
+        long amount = readAmount("Enter amount to withdraw (e.g. 10.00): ");
         bankService.withdraw(accountID, amount);
         AppLogger.info("Account withdrew: " + accountID);
         System.out.println("Withdrawal successful!");
@@ -132,7 +134,7 @@ public class BankRepl {
         System.out.println();
         System.out.println("=== Transfer ===");
         long targetAccountID = readLong("Enter account ID to transfer to: ");
-        long amount = readAmount("Enter amount to transfer: ");
+        long amount = readAmount("Enter amount to transfer (e.g. 10.00): ");
         bankService.transfer(accountID, targetAccountID, amount);
         AppLogger.info("Account transferred: " + accountID + " to " + targetAccountID);
         System.out.println("Transfer successful!");
@@ -198,13 +200,18 @@ public class BankRepl {
     private long readAmount(String prompt) {
         System.out.print(prompt);
         try {
-            long amount = Long.parseLong(scanner.nextLine().trim());
-            if (amount <= 0) {
+            BigDecimal amount = new BigDecimal(scanner.nextLine().trim())
+                    .setScale(2, RoundingMode.UNNECESSARY);
+            if (amount.signum() <= 0) {
                 throw new IllegalArgumentException("Amount must be greater than zero.");
             }
-            return amount;
-        } catch (NumberFormatException e) {
+            return amount.movePointRight(2).longValueExact();
+        } catch (NumberFormatException | ArithmeticException e) {
             throw new IllegalArgumentException("Please enter a valid amount.");
         }
+    }
+
+    private String formatAmount(long amountInCents) {
+        return BigDecimal.valueOf(amountInCents, 2).setScale(2).toPlainString();
     }
 }
