@@ -13,7 +13,7 @@ public class Account {
 
     @Override 
     public String toString() {
-        return String.format("Account ID: %d | Balance: $%.2f", accountID, balance);
+        return String.format("Account ID: %d | Balance: $%.2f", accountID, balance / 100.0);
     }
 
     public long getAccountID() {

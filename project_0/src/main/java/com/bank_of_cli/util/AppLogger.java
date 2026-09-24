@@ -1,0 +1,23 @@
+package com.bank_of_cli.util;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public final class AppLogger {
+    private static final Logger LOGGER = LoggerFactory.getLogger(AppLogger.class);
+
+    private AppLogger() {
+    }
+
+    public static void info(String message) {
+        LOGGER.info(message);
+    }
+
+    public static void error(String message) {
+        LOGGER.error(message);
+    }
+
+    public static void error(String message, Throwable cause) {
+        LOGGER.error(message, cause);
+    }
+}
